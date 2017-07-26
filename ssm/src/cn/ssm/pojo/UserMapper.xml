@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 命名空间，Mapper映射文件所在路径，pojo所在路径 -->
+<mapper namespace="cn.ssm.pojo.UserMapper">
+
+	<!-- 映射 -->
+	<resultMap type="User" id="userRM">
+		<id column="id" property="id"/>
+		<result column="user_name" property="userName"/>
+		<result column="age" property="age"/>
+		<result column="address" property="address"/>
+	</resultMap>
+
+	<!-- 查询所有,id是唯一标识，resultType返回值，只类型 resultType="cn.mybatis.pojo.User" -->
+	<select id="findAll" resultMap="userRM">
+SELECT * FROM user_c
+	</select>
+</mapper>
